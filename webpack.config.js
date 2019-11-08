@@ -22,8 +22,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "/dist/",
-    filename: "bundle.js",
-    libraryTarget: "commonjs2"
+    filename: "bundle.js"
+    // libraryTarget: "commonjs2"
   },
   devServer: {
     contentBase: path.join(__dirname, "public/"),
@@ -32,7 +32,7 @@ module.exports = {
     hotOnly: true
   },
   externals: {
-    react: "commonjs react"
+    // react: "commonjs react"
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };
