@@ -13,18 +13,25 @@ function MyEditor() {
   function handleKeyCommand(command, editorState) {
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
-      this.onChange(newState);
+      setEditorState(newState);
       return "handled";
     }
     return "not-handled";
   }
 
+  function _onBoldClick() {
+    setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
+  }
+
   return (
-    <Editor
-      editorState={editorState}
-      handleKeyCommand={handleKeyCommand}
-      onChange={setEditorState}
-    />
+    <React.Fragment>
+      <button onClick={_onBoldClick}>Bold</button>
+      <Editor
+        editorState={editorState}
+        handleKeyCommand={handleKeyCommand}
+        onChange={setEditorState}
+      />
+    </React.Fragment>
   );
 }
 
