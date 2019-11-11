@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Editor, EditorState, RichUtils } from "draft-js";
+import "./App.css";
 
 function MyEditor() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -23,15 +24,25 @@ function MyEditor() {
     setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
   }
 
+  function _onItalicClick() {
+    setEditorState(RichUtils.toggleInlineStyle(editorState, "ITALIC"));
+  }
+
   return (
-    <React.Fragment>
-      <button onClick={_onBoldClick}>Bold</button>
+    <div className="mt-2">
+      <button onClick={_onBoldClick} className="btn btn-light mr-1 ml-1">
+        Bold
+      </button>
+      <button onClick={_onItalicClick} className="btn btn-light mr-1 ml-1">
+        Italic
+      </button>
       <Editor
+        className="Editor"
         editorState={editorState}
         handleKeyCommand={handleKeyCommand}
         onChange={setEditorState}
       />
-    </React.Fragment>
+    </div>
   );
 }
 
