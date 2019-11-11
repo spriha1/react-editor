@@ -28,20 +28,30 @@ function MyEditor() {
     setEditorState(RichUtils.toggleInlineStyle(editorState, "ITALIC"));
   }
 
+  function _onUnderlineClick() {
+    setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
+  }
+
   return (
-    <div className="mt-2">
-      <button onClick={_onBoldClick} className="btn btn-light mr-1 ml-1">
-        Bold
-      </button>
-      <button onClick={_onItalicClick} className="btn btn-light mr-1 ml-1">
-        Italic
-      </button>
-      <Editor
-        className="Editor"
-        editorState={editorState}
-        handleKeyCommand={handleKeyCommand}
-        onChange={setEditorState}
-      />
+    <div className="Editor">
+      <div className="mt-2">
+        <button onClick={_onBoldClick} className="btn btn-light mr-1 ml-1">
+          Bold
+        </button>
+        <button onClick={_onItalicClick} className="btn btn-light mr-1 ml-1">
+          Italic
+        </button>
+        <button onClick={_onUnderlineClick} className="btn btn-light mr-1 ml-1">
+          Underline
+        </button>
+      </div>
+      <div className="TextArea mt-2">
+        <Editor
+          editorState={editorState}
+          handleKeyCommand={handleKeyCommand}
+          onChange={setEditorState}
+        />
+      </div>
     </div>
   );
 }

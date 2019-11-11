@@ -5,5 +5,11 @@
 
 .Editor {
   margin: auto;
-  border-style: solid;
+  border-style: groove;
+  width: 50%;
+  height: 50%;
+}
+
+.TextArea {
+  border-style: inset;
 }
